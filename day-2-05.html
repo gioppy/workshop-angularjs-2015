@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ToDo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" media="screen" charset="utf-8" />
+  </head>
+<body ng-app="todo">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>ToDo</h1>
+    </div>
+    <div class="panel panel-default" ng-controller="TodoController as t">
+      <div class="panel-body">
+        <form class="form-inline">
+          <label for="todo">Add new TODO</label>
+          <input type="text" id="todo" class="form-control" ng-model="t.new" name="todo" placeholder="Go to the Workshop!" />
+          <button ng-click="t.addTodo()" class="btn btn-default">Add</button>
+        </form>
+        <hr />
+        <ul class="nav nav-pills">
+          <li role="presentation">Active <span class="badge">{{t.todos.length}}</span></li>
+          <li role="presentation">Completed <span class="badge">{{t.completed.length}}</span></li>
+        </ul>
+        <hr />
+        <ul class="list-group" ng-show="t.todos.length > 0">
+          <li class="list-group-item" ng-repeat="todo in t.todos track by $index">
+            <button ng-click="t.completeTodo($index)" type="button" class="btn btn-default btn-xs">
+              <span class="glyphicon glyphicon-ok"></span> Done
+            </button>
+            <button ng-click="t.removeTodo($index)" type="button" class="btn btn-default btn-xs">
+              <span class="glyphicon glyphicon-remove"></span> Remove
+            </button>
+            <strong ng-bind="todo"></strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="app-05/todo.module.js"></script>
+  <script src="app-05/components/todo/todoController.js"></script>
+</body>
+</html>

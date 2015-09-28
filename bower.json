@@ -1,0 +1,24 @@
+{
+  "name": "angularjs-workshop",
+  "version": "1.0.0",
+  "authors": [
+    "Giovanni Buffa <tech@giovannibuffa.it>"
+  ],
+  "description": "AngularJS Workshop examples",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.6",
+    "bootstrap": "~3.3.5",
+    "firebase": "~2.2.9",
+    "angularfire": "~1.1.2",
+    "jquery": "1.10.2"
+  }
+}

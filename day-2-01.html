@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Expressions: AngularJS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" media="screen" charset="utf-8" />
+  </head>
+<body ng-app>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>Expressions: <small>AngularJS</small></h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <label for="name">Enter your name</label>
+        <input type="text" id="name" class="form-control" ng-model="name" name="your-name" placeholder="John Doe" />
+      </div>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Risultato</h3>
+      </div>
+      <div class="panel-body">
+        <p>Hello {{name | uppercase}}</p>
+        <p>{{(100 - 34) * 2}}</p>
+        <p>{{2 + 50 | currency}}</p>
+        <p>{{120 | currency:"€"}}</p>
+        <p>{{"2015-10-02T17:00:37-01:00" | date:'EEEE of MMMM in yyyy @ HH:mm:ss'}}</p>
+        <hr />
+        <ul class="list-group" ng-init="persons=['Pippo', 'Pluto', 'Paperino', 'Topolino']">
+          <li class="list-group-item" ng-repeat="person in persons | filter:name | orderBy:name" ng-class-odd="'text-primary'" ng-class-even="'text-warning'"><span class="glyphicon glyphicon-user"></span> <code ng-bind="$index"></code>  <strong ng-bind="person"></strong></li>
+        </ul>
+        <div class="alert alert-success" ng-show="name === 'Pippo'"><p>It's Pippo! <span class="glyphicon glyphicon-thumbs-up"></span></p></div>
+        <div class="alert alert-danger" ng-show="name !== 'Pippo'"><p>Hey, this is not Pippo! <span class="glyphicon glyphicon-thumbs-down"></span></p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script></script>
+</body>
+</html>

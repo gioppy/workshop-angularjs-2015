@@ -1,0 +1,24 @@
+{
+  "name": "angularjs-workshop",
+  "version": "1.0.0",
+  "description": "AngularJS Workshop examples",
+  "main": "index.html",
+  "dependencies": {
+    "browser-sync": "^2.9.6",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Giovanni Buffa & Andrea Milloch",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gioppy/workshop-angularjs-2015.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gioppy/workshop-angularjs-2015/issues"
+  },
+  "homepage": "https://github.com/gioppy/workshop-angularjs-2015#readme"
+}

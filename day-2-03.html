@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Scopes: AngularJS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" media="screen" charset="utf-8" />
+  </head>
+<body ng-app="todo">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>Scopes <small>AngularJS</small></h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>{{user.name}}</h3>
+        <p><a class="btn btn-primary" href="mailto:{{user.mail}}"><span class="glyphicon glyphicon-envelope"></span> Mail Me!</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script>
+    (function(){
+      'use strict';
+
+      angular.module('todo', []);
+
+      angular.module('todo')
+        .run(Run);
+
+      Run.$inject = ['$rootScope'];
+
+      function Run($rootScope){
+        $rootScope.user = {
+          name: 'Pippo',
+          mail: 'pippo@pippo.it'
+        };
+      }
+    })();
+  </script>
+</body>
+</html>

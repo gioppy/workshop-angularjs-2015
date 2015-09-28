@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Binding: Vanilla JS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" media="screen" charset="utf-8" />
+  </head>
+<body>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>Event Binding: <small>Vanilla JS</small></h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <label for="name">Enter your name</label>
+        <input type="text" id="name" class="form-control" name="your-name" onkeyup="bindOutput(this)" placeholder="John Doe" />
+      </div>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Risultato</h3>
+      </div>
+      <div class="panel-body">
+        <p id="output">Hello</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function bindOutput(elem){
+      var name = elem.value;
+      var outputElement = document.getElementById("output");
+      outputElement.innerHTML = "Hello " + name;
+    }
+  </script>
+</body>
+</html>

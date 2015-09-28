@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Scopes: AngularJS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" media="screen" charset="utf-8" />
+  </head>
+<body ng-app="todo">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>Scopes <small>AngularJS</small></h1>
+    </div>
+    <div class="panel panel-default" ng-controller="MyController">
+      <div class="panel-heading">
+        <h2 class="panel-title">{{title}}</h2>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <div class="list-group-item">
+            <h3 class="list-group-item-heading">{{user.name}}</h3>
+            <p class="list-group-item-text"><a class="btn btn-primary" ng-click="showAlert(user.mail);"><span class="glyphicon glyphicon-envelope"></span> Mail Me!</a></p>
+            <hr>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ng-repeat="action in actions">{{action}}</button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Mail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in users">
+              <td>{{$index}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.mail}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script>
+    (function(){
+      'use strict';
+
+      angular.module('todo', []);
+
+      angular.module('todo')
+        .controller('MyController', MyController);
+
+      MyController.$inject = ['$scope'];
+
+      function MyController($scope){
+        $scope.title = 'Your contacts:';
+        $scope.user = {
+          name: 'Pippo',
+          mail: 'pippo@pippo.it'
+        };
+        $scope.users = [
+          {
+            name: 'Pippo',
+            mail: 'pippo@pippo.it'
+          },
+          {
+            name: 'Pluto',
+            mail: 'pluto@pluto.it'
+          },
+          {
+            name: 'Paperino',
+            mail: 'paperino@paperino.it'
+          }
+        ];
+        $scope.actions = ['Edit', 'Delete'];
+        $scope.showAlert = showAlert;
+
+        function showAlert(mail){
+          confirm('Please, send a mail to ' + mail);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
