@@ -1,0 +1,12 @@
+<div class="media">
+  <div class="media-left">
+    <img class="media-object" ng-src="{{data.image.icon_url}}" alt="Image of {{data.name}} case">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{data.name}}</h4>
+    <h5>Released date: {{data.original_release_date}}</h5>
+    <ul class="list-inline">
+      <li ng-repeat="platform in data.platforms"><abbr title="{{platform.name}}" class="initialism">{{platform.abbreviation}}</abbr></li>
+    </ul>
+  </div>
+</div>

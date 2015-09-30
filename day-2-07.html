@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mario's Games</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" media="screen" charset="utf-8" />
+  </head>
+<body ng-app="mario">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>Mario's Games</h1>
+    </div>
+
+    <div class="row" ng-controller="GamesController as g">
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <game-teaser data="game" ng-repeat="game in g.games track by $index" ng-click="g.showPoster($index)"></game-teaser>
+            <!--<div class="media" ng-repeat="game in g.games track by $index">
+              <div class="media-left">
+                <img class="media-object" ng-src="{{game.image.icon_url}}" alt="Image of {{game.name}} case">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{game.name}}</h4>
+                <h5>Released date: {{game.original_release_date}}</h5>
+                <ul class="list-inline">
+                  <li ng-repeat="platform in game.platforms"><abbr title="{{platform.name}}" class="initialism">{{platform.abbreviation}}</abbr></li>
+                </ul>
+              </div>
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"><img class="img-thumbnail" ng-show="g.selectedPoster" ng-src="{{g.selectedPoster}}" alt=""></div>
+    </div>
+  </div>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="app-07/mario.module.js"></script>
+  <script src="app-07/components/games/gamesController.js"></script>
+  <script src="app-07/components/games/gamesFactory.js"></script>
+  <script src="app-07/shared/game/gameTeaserDirective.js"></script>
+</body>
+</html>
